@@ -24,28 +24,31 @@ st.sidebar.header('Specify Input Parameters')
 
 
 def user_input_features():
-    CRIM = st.sidebar.slider('CRIM', X.CRIM.min(),
+    CRIM = st.sidebar.slider('Crime rate', X.CRIM.min(),
                              X.CRIM.max(), float(X.CRIM.mean()))
-    ZN = st.sidebar.slider('ZN', X.ZN.min(), X.ZN.max(), float(X.ZN.mean()))
-    INDUS = st.sidebar.slider('INDUS', X.INDUS.min(),
+    ZN = st.sidebar.slider('Proportion of residential land',
+                           X.ZN.min(), X.ZN.max(), float(X.ZN.mean()))
+    INDUS = st.sidebar.slider('Proportion of non-retail business acres per town.', X.INDUS.min(),
                               X.INDUS.max(), float(X.INDUS.mean()))
-    CHAS = st.sidebar.slider('CHAS', X.CHAS.min(),
+    CHAS = st.sidebar.slider('Charles River (= 1 if tract bounds river; 0 otherwise)', X.CHAS.min(),
                              X.CHAS.max(), float(X.CHAS.mean()))
     NOX = st.sidebar.slider(
-        'NOX', X.NOX.min(), X.NOX.max(), float(X.NOX.mean()))
-    RM = st.sidebar.slider('RM', X.RM.min(), X.RM.max(), float(X.RM.mean()))
+        'Nitrogen oxides concentratio', X.NOX.min(), X.NOX.max(), float(X.NOX.mean()))
+    RM = st.sidebar.slider('Average number of rooms',
+                           X.RM.min(), X.RM.max(), float(X.RM.mean()))
     AGE = st.sidebar.slider(
-        'AGE', X.AGE.min(), X.AGE.max(), float(X.AGE.mean()))
+        'Proportion of owner-occupied units ', X.AGE.min(), X.AGE.max(), float(X.AGE.mean()))
     DIS = st.sidebar.slider(
-        'DIS', X.DIS.min(), X.DIS.max(), float(X.DIS.mean()))
+        'Distances to five Boston employment centres', X.DIS.min(), X.DIS.max(), float(X.DIS.mean()))
     RAD = st.sidebar.slider(
-        'RAD', X.RAD.min(), X.RAD.max(), float(X.RAD.mean()))
+        'Index of accessibility to radial highways.', X.RAD.min(), X.RAD.max(), float(X.RAD.mean()))
     TAX = st.sidebar.slider(
-        'TAX', X.TAX.min(), X.TAX.max(), float(X.TAX.mean()))
+        'Property-tax rate', X.TAX.min(), X.TAX.max(), float(X.TAX.mean()))
     PTRATIO = st.sidebar.slider(
-        'PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), float(X.PTRATIO.mean()))
-    B = st.sidebar.slider('B', X.B.min(), X.B.max(), float(X.B.mean()))
-    LSTAT = st.sidebar.slider('LSTAT', X.LSTAT.min(),
+        'Pupil-teacher ratio by town.', X.PTRATIO.min(), X.PTRATIO.max(), float(X.PTRATIO.mean()))
+    B = st.sidebar.slider('Proportion of black people by town.',
+                          X.B.min(), X.B.max(), float(X.B.mean()))
+    LSTAT = st.sidebar.slider('Lower status of the population (%)', X.LSTAT.min(),
                               X.LSTAT.max(), float(X.LSTAT.mean()))
     data = {'CRIM': CRIM,
             'ZN': ZN,
