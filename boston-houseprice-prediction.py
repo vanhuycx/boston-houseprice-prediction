@@ -24,31 +24,31 @@ st.sidebar.header('Specify Input Parameters')
 
 
 def user_input_features():
-    CRIM = st.sidebar.slider('Crime rate', X.CRIM.min(),
+    CRIM = st.sidebar.slider('Crime rate by town (CRIM)', X.CRIM.min(),
                              X.CRIM.max(), float(X.CRIM.mean()))
-    ZN = st.sidebar.slider('Proportion of residential land',
+    ZN = st.sidebar.slider('Proportion of residential land (ZN)',
                            X.ZN.min(), X.ZN.max(), float(X.ZN.mean()))
-    INDUS = st.sidebar.slider('Proportion of non-retail business acres per town.', X.INDUS.min(),
+    INDUS = st.sidebar.slider('Proportion of non-retail business acres per town (INDUS)', X.INDUS.min(),
                               X.INDUS.max(), float(X.INDUS.mean()))
-    CHAS = st.sidebar.slider('Charles River (= 1 if tract bounds river; 0 otherwise)', X.CHAS.min(),
+    CHAS = st.sidebar.slider('Charles River (CHAS = 1 if tract bounds river; 0 otherwise)', X.CHAS.min(),
                              X.CHAS.max(), float(X.CHAS.mean()))
     NOX = st.sidebar.slider(
-        'Nitrogen oxides concentratio', X.NOX.min(), X.NOX.max(), float(X.NOX.mean()))
-    RM = st.sidebar.slider('Average number of rooms',
+        'Nitrogen oxides concentratio (NOX)', X.NOX.min(), X.NOX.max(), float(X.NOX.mean()))
+    RM = st.sidebar.slider('Average number of rooms (RM)',
                            X.RM.min(), X.RM.max(), float(X.RM.mean()))
     AGE = st.sidebar.slider(
-        'Proportion of owner-occupied units ', X.AGE.min(), X.AGE.max(), float(X.AGE.mean()))
+        'Proportion of owner-occupied units (AGE)', X.AGE.min(), X.AGE.max(), float(X.AGE.mean()))
     DIS = st.sidebar.slider(
-        'Distances to five Boston employment centres', X.DIS.min(), X.DIS.max(), float(X.DIS.mean()))
+        'Distances to five Boston employment centres (DIS)', X.DIS.min(), X.DIS.max(), float(X.DIS.mean()))
     RAD = st.sidebar.slider(
-        'Index of accessibility to radial highways.', X.RAD.min(), X.RAD.max(), float(X.RAD.mean()))
+        'Index of accessibility to radial highways (RAD)', X.RAD.min(), X.RAD.max(), float(X.RAD.mean()))
     TAX = st.sidebar.slider(
-        'Property-tax rate', X.TAX.min(), X.TAX.max(), float(X.TAX.mean()))
+        'Property tax rate per $10,000 (TAX)', X.TAX.min(), X.TAX.max(), float(X.TAX.mean()))
     PTRATIO = st.sidebar.slider(
-        'Pupil-teacher ratio by town.', X.PTRATIO.min(), X.PTRATIO.max(), float(X.PTRATIO.mean()))
-    B = st.sidebar.slider('Proportion of black people by town.',
+        'Pupil-teacher ratio by town (PTRATIO)', X.PTRATIO.min(), X.PTRATIO.max(), float(X.PTRATIO.mean()))
+    B = st.sidebar.slider('Proportion of black people by town (B)',
                           X.B.min(), X.B.max(), float(X.B.mean()))
-    LSTAT = st.sidebar.slider('Lower status of the population (%)', X.LSTAT.min(),
+    LSTAT = st.sidebar.slider('Lower status of the population in percentage (LSTAT)', X.LSTAT.min(),
                               X.LSTAT.max(), float(X.LSTAT.mean()))
     data = {'CRIM': CRIM,
             'ZN': ZN,
@@ -86,7 +86,7 @@ load_model = pickle.load(open('boston-houseprice-model.pkl', 'rb'))
 # Apply Model to Make Prediction
 prediction = load_model.predict(df)
 
-st.header('Prediction of MEDV')
+st.header('Prediction of house price (in thousand dollars)')
 st.write(prediction)
 st.write('---')
 
